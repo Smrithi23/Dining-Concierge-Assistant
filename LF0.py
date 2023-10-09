@@ -18,10 +18,12 @@ def lambda_handler(event, context):
     # Initiate conversation with Lex
     response = client.recognize_text(
             botId='CUEYQ6RII5', # MODIFY HERE
-            botAliasId='DAQH96VBZE', # MODIFY HERE
+            botAliasId='OAFVDG55PL', # MODIFY HERE
             localeId='en_US',
             sessionId='testuser',
             text=msg_from_user)
+            
+    print("Response", response)
     
     msg_from_lex = response.get('messages', [])
     if msg_from_lex:
@@ -48,4 +50,3 @@ def lambda_handler(event, context):
         # to the S3 bucket
 
         return resp
-
